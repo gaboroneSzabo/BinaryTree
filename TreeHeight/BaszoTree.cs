@@ -20,7 +20,36 @@ namespace TreeHeight
             return 0;
         }
         
+        public void Add(int cucc)
+        {
+            root.Recursive(root, cucc);
+            Console.WriteLine(root.Value);
+        }
+       
 
-        
+        public bool CheckRecursive(Bogyo bogyo, int cucc)
+        {
+            if(bogyo!=null)
+            {
+                
+                if(root.Value == cucc)
+                {
+                    return true;
+                } else
+                {
+                    if(CheckRecursive(bogyo.Left, cucc))
+                    {
+                        return true;
+                    }
+                    if(CheckRecursive(bogyo.Right, cucc))
+                    {
+                        return true;
+                    }
+                    
+                }
+                
+            }
+            return false;
+        }
     }
 }
